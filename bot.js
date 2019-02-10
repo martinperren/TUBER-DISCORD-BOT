@@ -23,7 +23,7 @@ var roles = ["Owner", "Admin", "Bunker Support"];
 
 client.on("ready", () => {
 	
-	var channel = client.channels.get('454541386969251860');
+	var channel = client.channels.get('544082795350196226');
   channel.sendMessage("Reiniciado.");
 	
     console.log(`Bot iniciado ${client.users.size} usuarios en ${client.channels.size} canales.`);
