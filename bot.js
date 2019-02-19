@@ -22,15 +22,14 @@ var db = mysql.createConnection({
     charset: "utf8mb4"
 });
 
-let now = new Date();
+
 
 //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  
 
 
 
 
-db.query("INSERT INTO Youtube (clave, creador, id, link, reg_date) VALUES (?, ?, ?, ?, ?)",
-        [1, 'yo', 'test', 'www.test.com','a']);
+
 
 client.on("ready", () => {
 	
@@ -476,6 +475,23 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	
 	
 
+	if (message.content.startsWith("!add")){
+	
+		const clave = await message.channel.fetchMessages({limit: args[0]}); 
+		const link = await message.channel.fetchMessages({limit: args[1]}); 
+		let now = new Date();
+		
+		db.query("INSERT INTO Youtube (clave, creador, id, link, reg_date) VALUES (?, ?, ?, ?, ?)",
+        ['', message.author.username, clave, link, now]);
+		
+		
+		
+		
+	}
+	
+	
+	
+	
 	
 	
 	
