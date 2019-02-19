@@ -482,18 +482,18 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	
 
 	if (message.content.startsWith("!add")){
+		
+		
+		let clave;
+		let link;
+		let now;
+		
 	async function register() {
 		
-		if (isNaN(args[0])||isNaN(args[1])) {
-               
-                message.channel.send('Usa !add clave link.'); 
-                
-                return;
-            }
 		
-		const clave = await message.channel.fetchMessages({limit: args[0]}); 
-		const link = await message.channel.fetchMessages({limit: args[1]}); 
-		let now = new Date();
+		clave = await message.channel.fetchMessages({limit: args[0]}); 
+		link = await message.channel.fetchMessages({limit: args[1]}); 
+		now = new Date();
 	}
 		
 		
