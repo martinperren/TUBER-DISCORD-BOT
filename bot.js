@@ -533,7 +533,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 		});
 
-		if(link.length!=0){
+		if(String(link).length!=0){
 		
 		const voiceChannel = message.member.voiceChannel;
 				var video = await youtube.getVideo(String(link));
