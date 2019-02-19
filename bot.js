@@ -474,12 +474,31 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	}
 	
 	
+	
+	
+	/////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	
+	
+	
 
 	if (message.content.startsWith("!add")){
-	
+	ync function register() {
+		
+		if (isNaN(args[0])||isNaN(args[1])) {
+               
+                message.channel.send('Usa !add clave link.'); 
+                
+                return;
+            }
+		
 		const clave = await message.channel.fetchMessages({limit: args[0]}); 
 		const link = await message.channel.fetchMessages({limit: args[1]}); 
 		let now = new Date();
+	}
+		
+		
+		register();
+		
 		
 		db.query("INSERT INTO Youtube (clave, creador, id, link, reg_date) VALUES (?, ?, ?, ?, ?)",
         ['', message.author.username, clave, link, now]);
@@ -491,7 +510,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	
 	
 	
-	
+	////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 	
 	
 	
