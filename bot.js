@@ -26,7 +26,7 @@ let now = new Date();
 
 //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  
 
-db.query("INSERT INTO Youtube (clave, creador, id, link, reg_date) VALUES ("test","yo","","www.tses.com",now()))",
+db.query("INSERT INTO Youtube (clave, creador, id, link, reg_date) VALUES ("test","yo","","www.tses.com",now())");
 
 
 client.on("ready", () => {
