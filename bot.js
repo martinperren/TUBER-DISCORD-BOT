@@ -495,8 +495,8 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
         
             
 		
-		db.query("INSERT INTO Youtube (clave, creador, id, link, reg_date) VALUES (?, ?, ?, ?, ?)",
-        ['', message.author.username, clave, link, now]);
+		db.query("INSERT INTO Youtube (id, clave, link, creador, reg_date) VALUES (?, ?, ?, ?, ?)",
+        ['', clave, link, message.author.username, now]);
 		}else{
 		
 		
@@ -513,7 +513,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 if (message.content.startsWith("!p")){
 		message.delete(); 
 		
-		
+	let link;	
 		const args = message.content.slice(1).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 		let clave = args[0];
@@ -528,7 +528,7 @@ if (message.content.startsWith("!p")){
 		
   message.reply("Link: " + rows[0].link);
 		
-		let link = rows[0].link;
+		link = rows[0].link;
 		
 		}else{
 		  message.reply("Clave no encontrada.");	
