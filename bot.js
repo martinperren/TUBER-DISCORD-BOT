@@ -30,7 +30,7 @@ let now = new Date();
 
 
 db.query("INSERT INTO Youtube (clave, creador, id, link, reg_date) VALUES (?, ?, ?, ?, ?)",
-        [1, yo, test, www.test.com,a]);
+        [1, 'yo', 'test', 'www.test.com','a']);
 
 client.on("ready", () => {
 	
