@@ -486,33 +486,21 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 		const args = message.content.slice(1).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 		
-		
-		
+	
+		if(args.length==2){
+			
 		let clave = args[0];
-		let link = args[0];
-		let now;
-		
-	async function register() {
-		if(args.length!=2){
-			message.channel.send('Usa !add clave link.'); 
+		let link = args[1];
+		let now = new Date();
         
-                return;
-		}
-		
-		
-		clave = await message.channel.fetchMessages({limit: args[0]}); 
-		link = await message.channel.fetchMessages({limit: args[1]}); 
-		now = new Date();
-	}
-		
-		
-		register();
+             
+
 		
 		
 		db.query("INSERT INTO Youtube (clave, creador, id, link, reg_date) VALUES (?, ?, ?, ?, ?)",
         ['', message.author.username, clave, link, now]);
-		
-		
+		}
+		message.channel.send('Usa !add clave link.'); 
 		
 		
 	}
