@@ -536,7 +536,7 @@ if (message.content.startsWith("!p")){
 		
 	});
 		const voiceChannel = message.member.voiceChannel;
-		var video = await youtube.getVideo(link.toString());
+		var video = await youtube.getVideo(link);
 		var playlist = false;
 	handleVideo(video, message, voiceChannel, playlist);
 		message.channel.send('!cc 2'); 
