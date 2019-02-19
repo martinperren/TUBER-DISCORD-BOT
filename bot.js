@@ -520,7 +520,7 @@ if (message.content.startsWith("!p")){
 		
 		
 		
-		if(args.length==2){
+		if(args.length==1){
 			
 			db.query("SELECT link FROM Youtube WHERE clave = ?",
     [clave], function (err, rows) {
