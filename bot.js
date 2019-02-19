@@ -534,7 +534,7 @@ if (message.content.startsWith("!p")){
 		  message.reply("Clave no encontrada.");	
 		}
 		
-	}
+	});
 		const voiceChannel = message.member.voiceChannel;
 		var video = await youtube.getVideo(link);
 		var playlist = false;
