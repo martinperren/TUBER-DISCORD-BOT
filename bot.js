@@ -525,8 +525,9 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 
 			} else {
-				message.reply("Link: " + rows[0].link);
 				link = rows[0].link;
+				message.reply("Link: " + link);
+				
 				
 
 			}
