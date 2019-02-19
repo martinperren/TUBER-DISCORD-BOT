@@ -507,50 +507,46 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	
 	
 
-	
+	if (message.content.startsWith("!p")) {
+	message.delete();
 
-	
-if (message.content.startsWith("!p")){
-		message.delete(); 
-		
-	var link;	
-		const args = message.content.slice(1).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-		let clave = args[0];
-		
-		
-		
-		if(args.length==1){
-			
-			db.query("SELECT link FROM Youtube WHERE clave = ?",
-    [clave], function (err, rows) {
-        if (rows != null) {
-		
-  message.reply("Link: " + rows[0].link);
-		
-		link = rows[0].link;
-		
-		}else{
-		  message.reply("Clave no encontrada.");	
-		}
-		
-	});
-		const voiceChannel = message.member.voiceChannel;
-		var video = await youtube.getVideo(link);
-		var playlist = false;
-	handleVideo(video, message, voiceChannel, playlist);
-		message.channel.send('!cc 2'); 
-		
-	
-			
-		}else{
-		message.channel.send('Usa !p clave.'); 	
-		}
-		
-		
-		
+	var link;
+	const args = message.content.slice(1).trim().split(/ +/g);
+	const command = args.shift().toLowerCase();
+	let clave = args[0];
+
+
+	if (args.length == 1) {
+
+		db.query("SELECT link FROM Youtube WHERE clave = ?", [clave], function (err, rows) {
+			if (rows[0] == null) {
+
+				message.reply("Clave no encontrada.");
+
+
+			} else {´
+				message.reply("Link: " + rows[0].link);
+				link = rows[0].link;
+				const voiceChannel = message.member.voiceChannel;
+				var video = await youtube.getVideo(link);
+				var playlist = false;
+				handleVideo(video, message, voiceChannel, playlist);
+				message.channel.send('!cc 2');
+
+
+			}
+
+		});
+
+
+	} else {
+		message.channel.send('Usa !p clave.');
 	}
-	
+
+
+}
+
+
 	
 	
 
