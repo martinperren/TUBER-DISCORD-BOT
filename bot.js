@@ -510,7 +510,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	
 
 	
-	if (message.content.startsWith("!p")){
+if (message.content.startsWith("!p")){
 		message.delete(); 
 		
 		
@@ -526,26 +526,22 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
     [clave], function (err, rows) {
         if (rows != null) {
 		
-  message.reply("link: " + rows[0].link);
+  message.reply("Link: " + rows[0].link);
 		
 		let link = rows[0].link;
 		
+		}else{
+		  message.reply("Clave no encontrada.");	
+		}
+		
+	}
 		const voiceChannel = message.member.voiceChannel;
 		var video = await youtube.getVideo(link);
 		var playlist = false;
 	handleVideo(video, message, voiceChannel, playlist);
 		message.channel.send('!cc 2'); 
 		
-		
-        }
-			
-			
-			
-			
-			
-			
-			
-			
+	
 			
 		}else{
 		message.channel.send('Usa !p clave.'); 	
@@ -553,9 +549,8 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 		
 		
 		
-		
-		
 	}
+	
 	
 	
 
