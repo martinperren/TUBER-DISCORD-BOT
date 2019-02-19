@@ -513,7 +513,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 if (message.content.startsWith("!p")){
 		message.delete(); 
 		
-	let link;	
+	var link;	
 		const args = message.content.slice(1).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 		let clave = args[0];
@@ -536,7 +536,7 @@ if (message.content.startsWith("!p")){
 		
 	});
 		const voiceChannel = message.member.voiceChannel;
-		var video = await youtube.getVideo(link);
+		var video = await youtube.getVideo(link.toString());
 		var playlist = false;
 	handleVideo(video, message, voiceChannel, playlist);
 		message.channel.send('!cc 2'); 
