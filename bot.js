@@ -510,7 +510,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	if (message.content.startsWith("!p")) {
 	message.delete();
 
-	const link;
+	var link = "";
 	const args = message.content.slice(1).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 	let clave = args[0];
