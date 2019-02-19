@@ -10,15 +10,23 @@ const Util = require('discord.js');
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube(process.env.YT_API);
 const queue = new Map();
+const mysql = require("mysql");
 var rn = require('random-number');
 var roles = ["Owner", "Admin", "Bunker Support"];
 
+var db = mysql.createConnection({
+    host: process.env.sqlhost,
+    user: process.env.sqluser,
+    password: process.env.sqlpass,
+    database: process.env.sqldb,
+    charset: "utf8mb4"
+});
 
-
+let now = new Date();
 
 //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  
 
-
+db.query("INSERT INTO Youtube (clave, creador, id, link, reg_date) VALUES ("test","yo","","www.tses.com",now())",
 
 
 client.on("ready", () => {
