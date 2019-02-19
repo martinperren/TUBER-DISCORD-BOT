@@ -483,7 +483,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 	if (message.content.startsWith("!add")){
 		
-		const args = message.content.slice(prefix.length).trim().split(/ +/g);
+		const args = message.content.slice(1).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 		
 		
