@@ -483,12 +483,21 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 	if (message.content.startsWith("!add")){
 		
+		const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
 		
-		let clave;
-		let link;
+		
+		
+		let clave = args[0];
+		let link = args[0];
 		let now;
 		
 	async function register() {
+		if(args.length!=2){
+			message.channel.send('Usa !add clave link.'); 
+        
+                return;
+		}
 		
 		
 		clave = await message.channel.fetchMessages({limit: args[0]}); 
