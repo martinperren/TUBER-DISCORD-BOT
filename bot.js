@@ -516,7 +516,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	let clave = args[0];
 
 		
-		var villa = "";
+		var aux = "";
 		
 
 	if (args.length == 1) {
@@ -531,7 +531,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 				link = rows[0].link;
 				message.reply("Link: " + link);
 				
-				console.log(link);
+	
 
 			}
 
@@ -539,8 +539,10 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 		if(String(link).length!=0){
 		
+			aux.concat(link);
+			
 		const voiceChannel = message.member.voiceChannel;
-				var video = await youtube.getVideo(link+villa);
+				var video = await youtube.getVideo(aux);
 				var playlist = false;
 				handleVideo(video, message, voiceChannel, playlist);
 				//message.channel.send('!cc 2');
