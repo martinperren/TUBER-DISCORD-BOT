@@ -482,7 +482,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	
 
 	if (message.content.startsWith("!add")){
-	ync function register() {
+	sync function register() {
 		
 		if (isNaN(args[0])||isNaN(args[1])) {
                
