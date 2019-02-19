@@ -493,16 +493,16 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 		let link = args[1];
 		let now = new Date();
         
-             
-
-		
+            
 		
 		db.query("INSERT INTO Youtube (clave, creador, id, link, reg_date) VALUES (?, ?, ?, ?, ?)",
         ['', message.author.username, clave, link, now]);
-		}
+		}else{
+		
+		
 		message.channel.send('Usa !add clave link.'); 
 		
-		
+		}
 	}
 	
 	
