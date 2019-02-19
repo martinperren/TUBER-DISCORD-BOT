@@ -506,83 +506,61 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	}
 	
 	
-	
-	////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-	
-	
+
 	
 
 	
-	if (message.content.startsWith("!luz")){
+	if (message.content.startsWith("!p")){
 		message.delete(); 
-		const voiceChannel = message.member.voiceChannel;
-		var video = await youtube.getVideo('https://www.youtube.com/watch?v=2VcOvpeymjA');
-		var playlist = false;
-	handleVideo(video, message, voiceChannel, playlist);
-		message.channel.send('!cc 2'); 
-	}
-	
-	
-	
-	
-	if (message.content.startsWith("!cubilla")){
-		message.delete(); 
-		const voiceChannel = message.member.voiceChannel;
-		var video = await youtube.getVideo('https://www.youtube.com/watch?v=8HbVDzZPCPA');
-		var playlist = false;
-	handleVideo(video, message, voiceChannel, playlist);
-		message.channel.send('!cc 2'); 
 		
-	}
 		
-	
-
-	
-	
-	
-	
-	if (message.content.startsWith("!miami")){
-	message.delete(); 
-
-const voiceChannel = message.member.voiceChannel;
-		var video = await youtube.getVideo('https://www.youtube.com/watch?v=4ue2a6wN_wo');
-		var playlist = false;
-	handleVideo(video, message, voiceChannel, playlist);
+		const args = message.content.slice(1).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+		let clave = args[0];
+		
+		
+		
+		if(args.length==2){
 			
-		message.channel.send('!cc 2'); 
+			db.query("SELECT link FROM Youtube WHERE clave = ?",
+    [clave], function (err, rows) {
+        if (rows != null) {
 		
-	}
-	
-	if (message.content.startsWith("!fbi")){
-	message.delete(); 
-
-const voiceChannel = message.member.voiceChannel;
-		var video = await youtube.getVideo('https://www.youtube.com/watch?v=6fB8QiPTadY');
-		var playlist = false;
-	handleVideo(video, message, voiceChannel, playlist);
-			
-		message.channel.send('!cc 2'); 
+  message.reply("link: " + rows[0].link);
 		
-	}
-	
-	
-	
-	
-	
-	
-	
-	if (message.content.startsWith("!bobo")){
-		message.delete(); 
+		let link = rows[0].link;
 		
 		const voiceChannel = message.member.voiceChannel;
-		var video = await youtube.getVideo('https://www.youtube.com/watch?v=57DmGvPzlfU');
+		var video = await youtube.getVideo(link);
 		var playlist = false;
 	handleVideo(video, message, voiceChannel, playlist);
-			wait(2500);
 		message.channel.send('!cc 2'); 
 		
 		
+        }
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		}else{
+		message.channel.send('Usa !p clave.'); 	
+		}
+		
+		
+		
+		
+		
 	}
+	
+	
+
+////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	
 	
 
 	/*
