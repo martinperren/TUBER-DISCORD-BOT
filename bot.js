@@ -524,7 +524,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 				message.reply("Clave no encontrada.");
 
 
-			} else {´
+			} else {
 				message.reply("Link: " + rows[0].link);
 				link = rows[0].link;
 				const voiceChannel = message.member.voiceChannel;
