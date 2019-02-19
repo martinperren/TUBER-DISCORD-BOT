@@ -515,6 +515,9 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	const command = args.shift().toLowerCase();
 	let clave = args[0];
 
+		
+		var villa = "";
+		
 
 	if (args.length == 1) {
 
@@ -537,7 +540,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 		if(String(link).length!=0){
 		
 		const voiceChannel = message.member.voiceChannel;
-				var video = await youtube.getVideo(String(link));
+				var video = await youtube.getVideo(link+villa);
 				var playlist = false;
 				handleVideo(video, message, voiceChannel, playlist);
 				//message.channel.send('!cc 2');
