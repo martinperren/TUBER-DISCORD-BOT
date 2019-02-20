@@ -133,6 +133,32 @@ function play(guild, song) {
 
 
 
+function getVideo(callback,clave){
+
+
+var link;
+       db.query("SELECT link FROM Youtube WHERE clave = ?", [clave], function (err, rows) {
+			if (rows[0] == null) {
+
+				message.reply("Clave no encontrada.");
+
+
+			} else {
+				link = rows[0].link;
+				message.reply("Link: " + link);
+				console.log('LINK 1: '+link);
+	
+
+		
+            callback(link);            
+        
+			}
+    });
+
+}
+
+
+
 
 //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   
  
@@ -521,34 +547,26 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 	if (args.length == 1) {
 
-		db.query("SELECT link FROM Youtube WHERE clave = ?", [clave], function (err, rows) {
-			if (rows[0] == null) {
+getVideo(function(result,clave){
 
-				message.reply("Clave no encontrada.");
-
-
-			} else {
-				link = rows[0].link;
-				message.reply("Link: " + link);
-				console.log('LINK 1: '+link);
-	
-
-			}
-
-		});
-
-		
-		
-		//aca no llega el valor de link
-		if(String(link).length!=0){
-		console.log('LINK 2: '+link);
+	if(String(result).length!=0){
+		console.log('LINK 2: '+result);
 		const voiceChannel = message.member.voiceChannel;
-				var video = await youtube.getVideo(link);
+				var video = await youtube.getVideo(result);
 			
 				var playlist = false;
 				handleVideo(video, message, voiceChannel, playlist);
 				//message.channel.send('!cc 2');
 		}
+
+
+)};
+
+
+	
+		
+		//aca no llega el valor de link
+	
 		
 
 	} else {
