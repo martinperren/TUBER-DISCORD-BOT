@@ -521,7 +521,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 	if (args.length == 1) {
 
-		db.query("SELECT link FROM Youtube WHERE clave = ?", [clave], function (err, rows) {
+		db.query("SELECT link FROM Youtube WHERE clave = ?", [clave], async function (err, rows) {
 			if (rows[0] == null) {
 
 				message.reply("Clave no encontrada.");
@@ -531,16 +531,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 				link = rows[0].link;
 				message.reply("Link: " + link);
 				console.log('LINK 1: '+link);
-	
-
-			}
-
-		});
-
-		
-		
-		//aca no llega el valor de link
-		if(String(link).length!=0){
+	if(String(link).length!=0){
 		console.log('LINK 2: '+link);
 		const voiceChannel = message.member.voiceChannel;
 				var video = await youtube.getVideo(link);
@@ -549,6 +540,15 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 				handleVideo(video, message, voiceChannel, playlist);
 				//message.channel.send('!cc 2');
 		}
+
+			}
+
+		});
+
+		
+		
+		//aca no llega el valor de link
+		
 		
 
 	} else {
