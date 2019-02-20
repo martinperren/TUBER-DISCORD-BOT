@@ -553,6 +553,45 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 
 
+if (message.content.startsWith("!delete")) {
+	message.delete();
+
+	var link = "";
+	const args = message.content.slice(1).trim().split(/ +/g);
+	const command = args.shift().toLowerCase();
+	let clave = args[0];
+		
+
+	if (args.length == 1) {
+
+		db.query("DELETE FROM Youtube WHERE clave = ?", [clave], async function (err, rows) {
+			if (rows[0] == null) {
+
+				message.reply("Clave no encontrada.");
+
+
+			} else {
+
+				message.reply("Clave "+clave+" borrada.");
+		
+
+			}
+
+		});
+		
+
+	} else {
+		message.channel.send('Usa !delete clave.');
+	}
+
+
+}
+
+
+
+
+
+
 
 
 if (message.content.startsWith("!keys")) {
@@ -583,11 +622,7 @@ if (message.content.startsWith("!keys")) {
 
 		});
 
-		
 	
-
-	
-
 
 }
 
