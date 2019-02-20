@@ -560,20 +560,20 @@ if (message.content.startsWith("!keys")) {
 
 
 
-		db.query("SELECT clave FROM Youtube", async function (err, rows) {
+		db.query("SELECT * FROM Youtube", async function (err, rows) {
 			
 		
 	
 	
 	let sicon = message.guild.iconURL;
     let serverembed = new Discord.RichEmbed()
-    .setDescription("Informacion del Servidor")
+    .setDescription("Lista de claves")
     .setColor("#15f153")
     .setThumbnail(sicon)
 	
 	var i=0;
 	while(rows[i]!=null){
-		serverembed.addField(rows[i].clave);
+		serverembed.addField(rows[i].link,rows[i].clave);
 		i++;
 	}
 	
