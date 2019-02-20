@@ -15,23 +15,15 @@ const mysql = require("mysql");
 var rn = require('random-number');
 var roles = ["Owner", "Admin", "Bunker Support"];
 
-/*
 var db = mysql.createConnection({
     host: process.env.sqlhost,
     user: process.env.sqluser,
     password: process.env.sqlpass,
     database: process.env.sqldb,
     charset: "utf8mb4"
-});*/
-
-
-const mariadb = require('mariadb');
-const db = mariadb.createPool({
-      host: process.env.sqlhost,
-    user: process.env.sqluser,
-     password: process.env.sqlpass,
-     connectionLimit: 5
 });
+
+
 
 //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  
 
