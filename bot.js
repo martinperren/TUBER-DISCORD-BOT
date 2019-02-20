@@ -560,7 +560,7 @@ if (message.content.startsWith("!keys")) {
 
 
 
-		db.query("SELECT clave FROM Youtube", [clave], async function (err, rows) {
+		db.query("SELECT clave FROM Youtube", async function (err, rows) {
 			
 		
 	
