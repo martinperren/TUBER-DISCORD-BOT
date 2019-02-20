@@ -542,9 +542,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 			}
 
-		}.catch(function(err) {
-    console.log("error");
-  }));
+		});
 
 		
 		
