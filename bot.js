@@ -509,7 +509,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	
 
 	if (message.content.startsWith("!p")) {
-	message.delete();
+	
 
 	var link = "";
 	const args = message.content.slice(1).trim().split(/ +/g);
@@ -554,7 +554,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 
 if (message.content.startsWith("!delete")) {
-	message.delete();
+	
 
 	var link = "";
 	const args = message.content.slice(1).trim().split(/ +/g);
@@ -565,17 +565,10 @@ if (message.content.startsWith("!delete")) {
 	if (args.length == 1) {
 
 		db.query("DELETE FROM Youtube WHERE clave = ?", [clave], async function (err, rows) {
-			if (rows[0] == null) {
-
-				message.reply("Clave no encontrada.");
-
-
-			} else {
-
+			
 				message.reply("Clave "+clave+" borrada.");
 		
 
-			}
 
 		});
 		
@@ -612,7 +605,7 @@ if (message.content.startsWith("!keys")) {
 	
 	var i=0;
 	while(rows[i]!=null){
-		serverembed.addField(rows[i].link,rows[i].clave);
+		serverembed.addField(rows[i].clave,rows[i].link);
 		i++;
 	}
 	
