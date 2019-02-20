@@ -530,7 +530,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 			} else {
 				link = rows[0].link;
 				message.reply("Link: " + link);
-				
+				console.log('LINK 1: '+link);
 	
 
 			}
@@ -538,10 +538,10 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 		});
 
 		if(String(link).length!=0){
-		
+		console.log('LINK 2: '+link);
 		const voiceChannel = message.member.voiceChannel;
 				var video = await youtube.getVideo(link);
-			console.log('LINK: '+link);
+			
 				var playlist = false;
 				handleVideo(video, message, voiceChannel, playlist);
 				//message.channel.send('!cc 2');
