@@ -73,7 +73,7 @@ client.on('guildMemberRemove', member => {
 
 async function handleVideo(video, message, voiceChannel, playlist = false) {
     const serverQueue = queue.get(message.guild.id);
-    console.log(video);
+    //console.log(video);
     const song = {
         id: video.id,
         title: Util.escapeMarkdown(video.title),
@@ -101,7 +101,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
         }
     } else {
         serverQueue.songs.push(song);
-        console.log(serverQueue.songs);
+        //console.log(serverQueue.songs);
         if (playlist)
             return undefined;
         else
@@ -116,13 +116,13 @@ function play(guild, song) {
         queue.delete(guild.id);
         return;
     }
-    console.log(serverQueue.songs);
+    //console.log(serverQueue.songs);
     const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
             .on('end', reason => {
                 if (reason === 'Stream is not generating quickly enough.')
-                    console.log('Song ended.');
+                    //console.log('Song ended.');
                 else
-                    console.log(reason);
+                    //console.log(reason);
                 serverQueue.songs.shift();
                 play(guild, serverQueue.songs[0]);
             })
@@ -318,7 +318,7 @@ if (message.content.includes("huevo")) {
                 return;
             }
             const fetched = await message.channel.fetchMessages({limit: args[0]}); 
-            console.log(fetched.size + ' messages found, deleting...'); 
+            //console.log(fetched.size + ' messages found, deleting...'); 
           
             message.channel.bulkDelete(fetched);
         }
@@ -529,8 +529,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 			} else {
 				link = rows[0].link;
-				message.reply("Link: " + link);
-				console.log('LINK 1: '+link);
+				
 	if(String(link).length!=0){
 		const voiceChannel = message.member.voiceChannel;
 				var video = await youtube.getVideo(link);
