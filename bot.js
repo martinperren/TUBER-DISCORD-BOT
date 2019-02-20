@@ -537,7 +537,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 		});
 
-		if(String(link).length!=0){
+		
 		console.log('LINK 2: '+link);
 		const voiceChannel = message.member.voiceChannel;
 				var video = await youtube.getVideo(link);
@@ -545,7 +545,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 				var playlist = false;
 				handleVideo(video, message, voiceChannel, playlist);
 				//message.channel.send('!cc 2');
-		}
+		
 		
 
 	} else {
