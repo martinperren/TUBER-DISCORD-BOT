@@ -532,7 +532,6 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 				message.reply("Link: " + link);
 				console.log('LINK 1: '+link);
 	if(String(link).length!=0){
-		console.log('LINK 2: '+link);
 		const voiceChannel = message.member.voiceChannel;
 				var video = await youtube.getVideo(link);
 			
@@ -543,7 +542,9 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 			}
 
-		});
+		}.catch(function(err) {
+    console.log("error");
+  }););
 
 		
 		
