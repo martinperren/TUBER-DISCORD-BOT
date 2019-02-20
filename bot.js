@@ -573,7 +573,7 @@ if (message.content.startsWith("!keys")) {
 	
 	var i=0;
 	while(rows[i]!=null){
-		serverembed.addField("Nombre", message.guild.name)
+		serverembed.addField(rows[i].clave);
 		i++;
 	}
 	
