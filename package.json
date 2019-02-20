@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "mysql": "*",
+	"mariadb": "*",
     "discord.js": "11.3.2",
     "random-number": "0.0.9",
     "discord.js-music": "^2.1.0",
