@@ -19,7 +19,7 @@ var db = mysql.createConnection({
     user: process.env.sqluser,
     password: process.env.sqlpass,
     database: process.env.sqldb,
-    charset: "latin1"
+    charset: "latin1_swedish_ci"
 });
 
 
