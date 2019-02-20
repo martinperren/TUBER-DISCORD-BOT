@@ -120,9 +120,9 @@ function play(guild, song) {
     const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
             .on('end', reason => {
                 if (reason === 'Stream is not generating quickly enough.')
-                    //console.log('Song ended.');
+                    console.log('Song ended.');
                 else
-                    //console.log(reason);
+                    console.log(reason);
                 serverQueue.songs.shift();
                 play(guild, serverQueue.songs[0]);
             })
@@ -529,7 +529,6 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 
 			} else {
 				link = rows[0].link;
-				
 	if(String(link).length!=0){
 		const voiceChannel = message.member.voiceChannel;
 				var video = await youtube.getVideo(link);
