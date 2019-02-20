@@ -541,7 +541,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 		
 		const voiceChannel = message.member.voiceChannel;
 				var video = await youtube.getVideo(link);
-			console.log("LINK: "+link);
+			console.log('LINK: '+link);
 				var playlist = false;
 				handleVideo(video, message, voiceChannel, playlist);
 				//message.channel.send('!cc 2');
