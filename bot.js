@@ -160,7 +160,7 @@ if (message.content.includes("huevo")) {
    if (message.content.startsWith("!cmds")||message.content.startsWith("!help")){
         if (!message.member.roles.some(r => roles.includes(r.name)))
             return 0;
-        return message.reply("\n!cc num\n!rol nombre\n!uptime \n!server \n!ping\n!say texto\n!big texto\n!kick @usuario razon\n!mute @usuario\n!tmute @usuario 1s/m/h/d\n!unmute @usuario\n!ban @usuario razon\n!nick @usuario nick\n!music (ayuda de musica)\n!add (clave) (link de yt)\n!p (clave)");
+        return message.reply("\n!cc num\n!rol nombre\n!uptime \n!server \n!ping\n!say texto\n!big texto\n!kick @usuario razon\n!mute @usuario\n!tmute @usuario 1s/m/h/d\n!unmute @usuario\n!ban @usuario razon\n!nick @usuario nick\n!music (ayuda de musica)\n!add key link de yt\n!p key\n!keys (ver todas las keys)");
     }
     if (message.content.startsWith("!nick")){
         if (!message.member.roles.some(r => roles.includes(r.name)))
@@ -542,16 +542,51 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 			}
 
 		});
-
-		
-		
-		//aca no llega el valor de link
-		
 		
 
 	} else {
 		message.channel.send('Usa !p clave.');
 	}
+
+
+}
+
+
+
+
+
+if (message.content.startsWith("!keys")) {
+	message.delete();
+
+
+
+		db.query("SELECT clave FROM Youtube", [clave], async function (err, rows) {
+			
+		
+	
+	
+	let sicon = message.guild.iconURL;
+    let serverembed = new Discord.RichEmbed()
+    .setDescription("Informacion del Servidor")
+    .setColor("#15f153")
+    .setThumbnail(sicon)
+	
+	var i=0;
+	while(rows[i]!=null){
+		.addField("Nombre", message.guild.name)
+		i++;
+	}
+	
+	
+    message.channel.send(serverembed);
+							
+
+		});
+
+		
+	
+
+	
 
 
 }
