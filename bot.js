@@ -34,7 +34,7 @@ var db = mysql.createConnection({
 client.on("ready", () => {
 	
 	var channel = client.channels.get('544082795350196226');
-  channel.sendMessage("Reiniciado.");
+  channel.send("Reiniciado.");
 	
     console.log(`Bot iniciado ${client.users.size} usuarios en ${client.channels.size} canales.`);
 	
