@@ -160,7 +160,7 @@ if (message.content.includes("huevo")) {
    if (message.content.startsWith("!cmds")||message.content.startsWith("!help")){
         if (!message.member.roles.some(r => roles.includes(r.name)))
             return 0;
-        return message.reply("\n!cc num\n!rol nombre\n!uptime \n!server \n!ping\n!say texto\n!big texto\n!kick @usuario razon\n!mute @usuario\n!tmute @usuario 1s/m/h/d\n!unmute @usuario\n!ban @usuario razon\n!nick @usuario nick\n!music (ayuda de musica)\n!add key (link de yt)\n!remove key\n!p key (reproduce el video)\n!keys (ver todas las keys)");
+        return message.reply("\n!cc num\n!rol nombre\n!uptime \n!server \n!say texto\n!big texto\n!kick @usuario razon\n!mute @usuario\n!tmute @usuario 1s/m/h/d\n!unmute @usuario\n!ban @usuario razon\n!nick @usuario nick\n!music (ayuda de musica)\n!add key (link de yt)\n!remove key\n!p key (reproduce el video)\n!keys (ver todas las keys)");
     }
     if (message.content.startsWith("!nick")){
         if (!message.member.roles.some(r => roles.includes(r.name)))
