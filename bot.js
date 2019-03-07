@@ -110,7 +110,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
     }
     return undefined;
 }
-function play(guild, song) {
+async function play(guild, song) {
     const serverQueue = queue.get(guild.id);
     if (!song) {
         serverQueue.voiceChannel.leave();
@@ -118,7 +118,7 @@ function play(guild, song) {
         return;
     }
     //console.log(serverQueue.songs);
-    const dispatcher = serverQueue.connection.playOpusStream(ytdl(song.url))
+    const dispatcher = serverQueue.connection.playOpusStream(await ytdl(song.url))
             .on('end', reason => {
                 if (reason === 'Stream is not generating quickly enough.')
                     console.log('Song ended.');
