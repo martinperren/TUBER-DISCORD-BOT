@@ -118,7 +118,7 @@ function play(guild, song) {
         return;
     }
     //console.log(serverQueue.songs);
-    const dispatcher = connection.play(ytdl(song.url))
+    const dispatcher = serverQueue.connection.playOpusStream(ytdl(song.url))
             .on('end', reason => {
                 if (reason === 'Stream is not generating quickly enough.')
                     console.log('Song ended.');
