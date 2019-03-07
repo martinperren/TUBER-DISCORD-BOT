@@ -118,10 +118,10 @@ function play(guild, song) {
         return;
     }
     //console.log(serverQueue.songs);
-	
+	let dispatcher;
 	async function play(connection, url) {
 		
-		 const dispatcher = serverQueue.connection.playOpusStream(await ytdl(song.url))
+		dispatcher  = serverQueue.connection.playOpusStream(await ytdl(song.url))
             .on('end', reason => {
                 if (reason === 'Stream is not generating quickly enough.')
                     console.log('Song ended.');
