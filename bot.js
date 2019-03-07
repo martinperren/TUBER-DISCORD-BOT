@@ -504,7 +504,7 @@ message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`);
 	
 	
 
-	if (message.content.startsWith("!p")) {
+	if (message.content.startsWith("!p ")) {
 	
 
 	var link = "";
@@ -615,74 +615,6 @@ if (message.content.startsWith("!keys")) {
 
 }
 
-
-	
-	
-
-////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-	
-	
-
-	/*
-	if (message.content.startsWith("!drop")){	
-		
-		
-		if (message.author.id=='271230507692457984'||message.author.id=='355922192749428737'){
-		message.reply(`Segui participando.`);
-		}else{	
-		
-		
-		const drop = client.emojis.get("487031984514924569");
-		const cabe = client.emojis.get("352337869940981761");
-		const matishi = client.emojis.get("443794838517972992");
-		const chiva = client.emojis.get("352676747470438400");
-		const fito = client.emojis.get("354070485241298945");
-		const humo = client.emojis.get("487377504731136003");
-			
-			
-		
-		
-		
-		
-var options = {
-  min:  1
-, max:  6
-, integer: true
-}
-	
-		
-		
-		switch(rn(options)) {
-          
-				 case 1:
-       message.reply(`Ganaste un Fiat 600 humeante! ${fito}`);
-        break;
-				 case 2:
-        message.reply(`Ganaste un cabe de la suerte! ${cabe}`);
-        break;
-				 case 3:
-        message.reply(`${drop}`);
-        break;
-				 case 4:
-        message.reply(`Ganaste un toxictishi! ${matishi}`);
-        break;
-				 case 5:
-        message.reply(`Ganaste un IEEEEEEE! ${chiva}`);
-        break;
-			case 6:
-        message.reply(`Ganaste un Ricardo Caruso Lombardi! ${humo}`);
-        break;
-		
-		}
-		}	
-		
-	}
-	
-	
-	*/
-	
-	
-	
 	
 	
 	
