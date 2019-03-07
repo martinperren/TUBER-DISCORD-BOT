@@ -10,7 +10,6 @@ const Util = require('discord.js');
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube(process.env.YT_API);
 const queue = new Map();
-
 const mysql = require("mysql");
 var rn = require('random-number');
 var roles = ["Owner", "Admin", "Bunker Support"];
