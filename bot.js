@@ -12,7 +12,9 @@ const youtube = new YouTube(process.env.YT_API);
 const queue = new Map();
 const mysql = require("mysql");
 var rn = require('random-number');
-var roles = ["Owner", "Admin", "Bunker Support"];
+
+var admin = ["Owner", "Admin", "Bunker Support"];
+var roles = ["Owner", "Admin", "Bunker Support","Mods"];
 
 var db = mysql.createConnection({
     host: process.env.sqlhost,
@@ -162,7 +164,7 @@ if (message.content.includes("huevo")) {
         return message.reply("\n!cc num\n!rol nombre\n!uptime \n!server \n!say texto\n!big texto\n!kick @usuario razon\n!mute @usuario\n!tmute @usuario 1s/m/h/d\n!unmute @usuario\n!ban @usuario razon\n!nick @usuario nick\n!music (ayuda de musica)\n!add key (link de yt)\n!remove key\n!p key (reproduce el video)\n!keys (ver todas las keys)");
     }
     if (message.content.startsWith("!nick")){
-        if (!message.member.roles.some(r => roles.includes(r.name)))
+        if (!message.member.roles.some(r => admin.includes(r.name)))
             return 0;
         let member = message.mentions.members.first();
         user = member.user.username;
@@ -172,7 +174,7 @@ if (message.content.includes("huevo")) {
     }
     
     if (message.content.startsWith("!say")){
-        if (!message.member.roles.some(r => roles.includes(r.name)))
+        if (!message.member.roles.some(r => admin.includes(r.name)))
             return 0;
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {
@@ -203,7 +205,7 @@ if (message.content.includes("huevo")) {
 	
 	
 	 if (message.content.startsWith("!big")){
-        if (!message.member.roles.some(r => roles.includes(r.name)))
+        if (!message.member.roles.some(r => admin.includes(r.name)))
             return 0;
         const sayMessage = args.join(" ");
 		 let arr = Array.from(sayMessage.toLowerCase());
@@ -246,7 +248,7 @@ if (message.content.includes("huevo")) {
 	
 	
     if (message.content.startsWith("!kick")){
-        if (!message.member.roles.some(r => roles.includes(r.name)))
+        if (!message.member.roles.some(r => admin.includes(r.name)))
             return 0;
         let member = message.mentions.members.first();
         if (!member)
@@ -280,7 +282,7 @@ if (message.content.includes("huevo")) {
     }
     if (message.content.startsWith("!ban")){
      
-        if (!message.member.roles.some(r => roles.includes(r.name)))
+        if (!message.member.roles.some(r => admin.includes(r.name)))
             return 0;
         let member = message.mentions.members.first();
         if (!member)
@@ -303,7 +305,7 @@ if (message.content.includes("huevo")) {
 		
     if (message.content.startsWith("!cc")){
         
-        if (!message.member.roles.some(r => roles.includes(r.name)))
+        if (!message.member.roles.some(r => admin.includes(r.name)))
             return 0;
         async function purge() {
             message.delete(); 
@@ -448,7 +450,7 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 	
 	
 	 if (message.content.startsWith("!role")){
-		 if (!message.member.roles.some(r => roles.includes(r.name)))
+		 if (!message.member.roles.some(r => admin.includes(r.name)))
             return 0;
 	const sayMessage = args.join(" ");
 	var i = message.guild.roles.find("name", sayMessage).id;
@@ -457,7 +459,7 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 	 
 	 
 	if (message.content.startsWith("!uptime")){
-	 if (!message.member.roles.some(r => roles.includes(r.name)))
+	 if (!message.member.roles.some(r => admin.includes(r.name)))
             return 0;
 message.delete();
 		
