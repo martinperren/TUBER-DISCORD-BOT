@@ -150,12 +150,12 @@ client.on("message", async message => {
     const serverQueue = queue.get(message.guild.id);
    
 if (message.content.includes("huevo")) {
-        message.react(client.emojis.get("537716691803570236"));
+        message.react(client.emojis.get("537716624296378399"));
     }
 	
     if (message.content.startsWith("!huevo")){
         message.delete();
-        const ayy = client.emojis.get("537716691803570236");
+        const ayy = client.emojis.get("537716624296378399");
         message.channel.send(`¿y el ${ayy}?`);
     }
    if (message.content.startsWith("!cmds")||message.content.startsWith("!help")){
