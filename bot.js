@@ -43,15 +43,13 @@ client.on("ready", () => {
 	client.user.setActivity(process.env.GAME, { type: 'WATCHING' })
   .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
   .catch(console.error);
-	
- //client.user.setPresence({ game: { name: 'Bunker', type: "streaming", url: "https://www.twitch.tv/benex_rs"}});
+
 });
 client.on("guildCreate", guild => {
     console.log(`Nuevo guild: ${guild.name} (id: ${guild.id}). Este guild tiene ${guild.memberCount} miembros.`);
 	client.user.setActivity(process.env.GAME, { type: 'WATCHING' })
   .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
   .catch(console.error);
-   // client.user.setPresence({ game: { name: 'Bunker', type: "streaming", url: "https://www.twitch.tv/benex_rs"}});
 	
 		
 });
