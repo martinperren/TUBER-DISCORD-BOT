@@ -40,7 +40,7 @@ client.on("ready", () => {
 	
     console.log(`Bot iniciado ${client.users.size} usuarios en ${client.channels.size} canales.`);
 	
-	client.user.setActivity(process.env.GAME, { type: 'WATCHING' })
+	client.user.setActivity(process.env.GAME, { type: 'LISTENING' })
   .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
   .catch(console.error);
 
