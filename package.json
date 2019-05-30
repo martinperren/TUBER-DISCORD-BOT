@@ -8,8 +8,7 @@
   },
   "dependencies": {
     "mysql": "*",
-    "discord.js": "11.3.2",
-    "random-number": "0.0.9",
+    "discord.js": "^11.3.2",
 	"ytdl-core-discord": "*",
     "jsonfile": "^3.0.0",
     "node-rest-client": "^3.1.0",
