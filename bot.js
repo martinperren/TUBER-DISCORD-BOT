@@ -60,7 +60,9 @@ client.on("guildDelete", guild => {
  client.user.setGame(process.env.GAME);		
 });
 client.on('guildMemberAdd', member => {
-    member.guild.channels.get('555046804807221248').send('**' + member.user.username + '** ahora vive en MAIAMEEEEE! :house:');
+    //member.guild.channels.get('555046804807221248').send('**' + member.user.username + '** ahora vive en MAIAMEEEEE! :house:');
+	member.user.send("test.")
+	
 member.addRole('537712377634881545');
 });
 client.on('guildMemberRemove', member => {
