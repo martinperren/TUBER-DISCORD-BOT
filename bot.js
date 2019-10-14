@@ -190,8 +190,8 @@ if (message.content.includes("huevo")) {
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {
         });
-	 tts: true
-        message.channel.send(sayMessage);
+	 
+        message.channel.send(sayMessage, { tts: true });
     }
 	
 	
