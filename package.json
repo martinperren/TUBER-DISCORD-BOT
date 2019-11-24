@@ -9,7 +9,7 @@
   "dependencies": {
     "mysql": "*",
     "discord.js": "^11.3.2",
-	"ytdl-core-discord": "*",
+	"ytdl-core-discord": "^1.0.3",
     "jsonfile": "^3.0.0",
     "node-rest-client": "^3.1.0",
     "simple-youtube-api": "^3.0.0"
