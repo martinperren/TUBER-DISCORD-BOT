@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const Client = require('node-rest-client').Client;
-//const ytdl = require('ytdl-core-discord');
+const ytdl = require('ytdl-core-discord');
 const jsonfile = require('jsonfile');
 const configFile = "config.json";
 const restClient = new Client();
