@@ -71,7 +71,7 @@ client.on('guildMemberRemove', member => {
 });
 
 
-/*
+
 
 async function handleVideo(video, message, voiceChannel, playlist = false) {
     const serverQueue = queue.get(message.guild.id);
@@ -134,7 +134,7 @@ async function play(guild, song) {
 }
 
 
-*/
+
 
 //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   
  
@@ -339,7 +339,7 @@ if (message.content.includes("huevo")) {
     }
 	
 	
-	/*
+
     if (message.content.startsWith("!play")){
         const voiceChannel = message.member.voiceChannel;
         if (!voiceChannel)
@@ -403,7 +403,7 @@ Pone un numero de 1-10.
 	
 	
 	
-	*/
+	
 	
 	 if (message.author.id=='355922192749428737'&&(message.content.includes("lol")||(message.content.includes("sale")))){
 	    
