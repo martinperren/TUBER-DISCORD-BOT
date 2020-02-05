@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const Client = require('node-rest-client').Client;
-const ytdl = require('ytdl-core-discord');
+//const ytdl = require('ytdl-core-discord');
 const jsonfile = require('jsonfile');
 const configFile = "config.json";
 const restClient = new Client();
@@ -73,7 +73,7 @@ client.on('guildMemberRemove', member => {
 
 
 
-async function handleVideo(video, message, voiceChannel, playlist = false) {
+/*async function handleVideo(video, message, voiceChannel, playlist = false) {
     const serverQueue = queue.get(message.guild.id);
     //console.log(video);
     const song = {
@@ -133,7 +133,7 @@ async function play(guild, song) {
     serverQueue.textChannel.send(`Reproduciendo: **${song.title}**`);
 }
 
-
+*/
 
 
 //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   
