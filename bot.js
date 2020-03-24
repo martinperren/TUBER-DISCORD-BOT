@@ -669,7 +669,7 @@ client.on("message", async message => {
 	}
 	if (message.content.startsWith("!server")){
 		let sicon = message.guild.iconURL;
-		let serverembed = new Discord.RichEmbed()
+		let serverembed = new Discord.MessageEmbed()
 		.setDescription("Informacion del Servidor")
 		.setColor("#15f153")
 		.setThumbnail(sicon)
