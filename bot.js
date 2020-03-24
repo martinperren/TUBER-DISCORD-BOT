@@ -9,7 +9,6 @@ const Util = require('discord.js');
 //const YouTube = require('simple-youtube-api');
 //const youtube = new YouTube(process.env.YT_API);
 //const queue = new Map();
-const config = require('./config.json');
 var vel = 4320000000;
 var admin = ["Owner", "Admin", "Bunker Support"];
 var roles = ["Owner", "Admin", "Bunker Support","Mods"];
