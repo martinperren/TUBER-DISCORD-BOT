@@ -77,8 +77,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
 		let role = reaction.message.guild.roles.cache.find(role => role.name.toLowerCase() === emojiName.toLowerCase());
 		let member = reaction.message.guild.members.cache.find(member => member.id === user.id);
 
+		member.roles.remove("691878387970736128");
 		member.roles.add("537712377634881545");
-		
+
 		try {
 			if(role && member) {
 				
@@ -491,7 +492,7 @@ client.on("message", async message => {
     	var mins = Math.round((client.uptime % 3.6e6) / 6e4);	
     	message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`); 	
     }
-    
+
 
     if (message.content.startsWith("!rules")){
     	message.channel.send(`Reglas: No ser como Faste`); 
