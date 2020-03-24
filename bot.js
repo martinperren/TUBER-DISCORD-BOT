@@ -80,9 +80,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
 		let member = reaction.message.guild.members.cache.find(member => member.id === user.id);
 		try {
 			if(role && member) {
-				console.log("Role and member found.");
+				
 				await member.roles.add(role);
-				console.log("Done.");
+			console.log(member.displayName+ "ahora tiene el rol "+reaction.emoji.name);
 			}
 		}
 		catch(err) {
@@ -92,13 +92,11 @@ client.on('messageReactionAdd', async (reaction, user) => {
 	if(reaction.message.partial)
 	{
 
-		console.log("asd");
 		try {
 			let msg = await reaction.message.fetch(); 
 			console.log(msg.id);
 			if(msg.id === '691831956106903563')
-			{
-				console.log("Cached")
+			{			
 				applyRole();
 			}
 		}
@@ -108,7 +106,6 @@ client.on('messageReactionAdd', async (reaction, user) => {
 	}
 	else 
 	{
-		console.log("Not a partial.");
 		if(reaction.message.id === '691831956106903563') {
 			console.log(true);
 			applyRole();
@@ -123,9 +120,9 @@ client.on('messageReactionRemove', async (reaction, user) => {
 		let member = reaction.message.guild.members.cache.find(member => member.id === user.id);
 		try {
 			if(role && member) {
-				console.log("Role and member found.");
+			
 				await member.roles.remove(role);
-				console.log("Done.");
+				console.log(member.displayName+ "ahora tiene el rol "+emojiName);
 			}
 		}
 		catch(err) {
@@ -139,7 +136,6 @@ client.on('messageReactionRemove', async (reaction, user) => {
 			console.log(msg.id);
 			if(msg.id === '691831956106903563')
 			{
-				console.log("Cached")
 				removeRole();
 			}
 		}
