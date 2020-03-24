@@ -33,24 +33,13 @@ client.on("ready", () => {
 	console.log("Bot iniciado");
 	
 	client.user.setActivity(process.env.GAME, { type: 'LISTENING' })
-	.then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
+	.then(presence => console.log(`Activity set to ${presence.activities ? presence.game.name : 'none'}`))
 	.catch(console.error);
 
 });
-client.on("guildCreate", guild => {
-	console.log(`Nuevo guild: ${guild.name} (id: ${guild.id}). Este guild tiene ${guild.memberCount} miembros.`);
-	client.user.setActivity(process.env.GAME, { type: 'WATCHING' })
-	.then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
-	.catch(console.error);
-	
-
-});
 
 
-client.on("guildDelete", guild => {
-	console.log(`Quitado de guild: ${guild.name} (id: ${guild.id})`);
-	client.user.setGame(process.env.GAME);		
-});
+
 client.on('guildMemberAdd', member => {
     //member.guild.channels.get('555046804807221248').send('**' + member.user.username + '** ahora vive en MAIAMEEEEE! :house:');
     member.roles.add("691878387970736128");
