@@ -72,7 +72,7 @@ client.on('guildMemberRemove', member => {
 
 
 client.on('messageReactionAdd', async (reaction, user) => {
-	console.log(reaction.emoji.name);
+	
 	let applyRole = async () => {
 		let emojiName = reaction.emoji.name;
 
@@ -82,7 +82,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 			if(role && member) {
 				
 				await member.roles.add(role);
-			console.log(member.displayName+ "ahora tiene el rol "+reaction.emoji.name);
+				console.log(member.displayName+ "ahora tiene el rol "+reaction.emoji.name".");
 			}
 		}
 		catch(err) {
@@ -94,7 +94,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 		try {
 			let msg = await reaction.message.fetch(); 
-			console.log(msg.id);
+			
 			if(msg.id === '691831956106903563')
 			{			
 				applyRole();
@@ -107,7 +107,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 	else 
 	{
 		if(reaction.message.id === '691831956106903563') {
-			console.log(true);
+			
 			applyRole();
 		}
 	}
@@ -120,9 +120,9 @@ client.on('messageReactionRemove', async (reaction, user) => {
 		let member = reaction.message.guild.members.cache.find(member => member.id === user.id);
 		try {
 			if(role && member) {
-			
+				
 				await member.roles.remove(role);
-				console.log(member.displayName+ "ahora tiene el rol "+emojiName);
+				console.log(member.displayName+ " ya no tiene el rol "+emojiName".");
 			}
 		}
 		catch(err) {
@@ -133,7 +133,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 	{
 		try {
 			let msg = await reaction.message.fetch(); 
-			console.log(msg.id);
+			
 			if(msg.id === '691831956106903563')
 			{
 				removeRole();
@@ -145,9 +145,9 @@ client.on('messageReactionRemove', async (reaction, user) => {
 	}
 	else 
 	{
-		console.log("Not a partial.");
+		
 		if(reaction.message.id === '691831956106903563') {
-			console.log(true);
+			
 			removeRole();
 		}
 	}
