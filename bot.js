@@ -485,7 +485,7 @@ client.on("message", async message => {
     	if (!message.member.hasPermission("BAN_MEMBERS"))
     		return 0;
     	const sayMessage = args.join(" ");
-    	var i = message.guild.roles.cache.find("name", sayMessage).id;
+    	var i =client.message.guild.roles.cache.find("name", sayMessage).id;
     	return message.channel.send(i);
     }
 
