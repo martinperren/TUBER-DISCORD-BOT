@@ -486,7 +486,7 @@ client.on("message", async message => {
     		return 0;
     	const sayMessage = args.join(" ");
     	var i = message.guild.roles.cache.find("name", sayMessage).id;
-    	return message.reply(i); 
+    	return message.channel.send(i);
     }
 
 
