@@ -234,12 +234,12 @@ client.on("message", async message => {
 		message.channel.send(`¿y el ${ayy}?`);
 	}
 	if (message.content.startsWith("!cmds")||message.content.startsWith("!help")){
-		if (!message.member.roles.some(r => roles.includes(r.name)))
+		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;
 		return message.reply("\n!cc num\n!rol nombre\n!uptime \n!server \n!say texto\n!big texto\n!kick @usuario razon\n!mute @usuario\n!tmute @usuario 1s/m/h/d\n!unmute @usuario\n!ban @usuario razon\n!nick @usuario nick\n!music (ayuda de musica)\n!add key (link de yt)\n!remove key\n!p key (reproduce el video)\n!keys (ver todas las keys)");
 	}
 	if (message.content.startsWith("!nick")){
-		if (!message.member.roles.some(r => admin.includes(r.name)))
+		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;
 		let member = message.mentions.members.first();
 		user = member.user.username;
@@ -249,7 +249,7 @@ client.on("message", async message => {
 	}
 
 	if (message.content.startsWith("!say")){
-		if (!message.member.roles.some(r => admin.includes(r.name)))
+		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;
 		const sayMessage = args.join(" ");
 		message.delete().catch(O_o => {
@@ -260,7 +260,7 @@ client.on("message", async message => {
 	
 	
 	if (message.content.startsWith("!tts")){
-		if (!message.member.roles.some(r => admin.includes(r.name)))
+		if (!!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;
 		const sayMessage = args.join(" ");
 		message.delete().catch(O_o => {
@@ -292,7 +292,7 @@ client.on("message", async message => {
 	
 	
 	if (message.content.startsWith("!big")){
-		if (!message.member.roles.some(r => admin.includes(r.name)))
+		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;
 		const sayMessage = args.join(" ");
 		let arr = Array.from(sayMessage.toLowerCase());
@@ -335,7 +335,7 @@ client.on("message", async message => {
 	
 	
 	if (message.content.startsWith("!kick")){
-		if (!message.member.roles.some(r => admin.includes(r.name)))
+		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;
 		let member = message.mentions.members.first();
 		if (!member)
@@ -350,7 +350,7 @@ client.on("message", async message => {
 		message.channel.send(`<@${message.author.id}> kickeó a <@${member.user.id}> por: ${reason}.`);
 	}
 	if (message.content.startsWith("!mute")){
-		if (!message.member.roles.some(r => roles.includes(r.name)))
+		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;
 		let member = message.mentions.members.first();
 		if (!member)
@@ -359,7 +359,7 @@ client.on("message", async message => {
 		message.channel.send(`<@${member.user.id}> fue muteado por <@${message.author.id}>.`);
 	}
 	if (message.content.startsWith("!unmute")){
-		if (!message.member.roles.some(r => roles.includes(r.name)))
+		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;
 		let member = message.mentions.members.first();
 		if (!member)
@@ -369,7 +369,7 @@ client.on("message", async message => {
 	}
 	if (message.content.startsWith("!ban")){
 
-		if (!message.member.roles.some(r => admin.includes(r.name)))
+		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;
 		let member = message.mentions.members.first();
 		if (!member)
@@ -392,7 +392,7 @@ client.on("message", async message => {
 
 	if (message.content.startsWith("!cc")){
 
-		if (!message.member.roles.some(r => admin.includes(r.name)))
+		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;
 		async function purge() {
 			message.delete(); 
@@ -482,7 +482,7 @@ client.on("message", async message => {
 
 
     if (message.content.startsWith("!role")){
-    	if (!message.member.roles.some(r => admin.includes(r.name)))
+    	if (!message.member.hasPermission("BAN_MEMBERS"))
     		return 0;
     	const sayMessage = args.join(" ");
     	var i = message.guild.roles.find("name", sayMessage).id;
@@ -491,7 +491,7 @@ client.on("message", async message => {
 
 
     if (message.content.startsWith("!uptime")){
-    	if (!message.member.roles.some(r => admin.includes(r.name)))
+    	if (!message.member.hasPermission("BAN_MEMBERS"))
     		return 0;
     	message.delete();
 
@@ -653,7 +653,7 @@ client.on("message", async message => {
 	
 	
 	if (message.content.startsWith("!tmute")){
-		if (!message.member.roles.some(r => roles.includes(r.name)))
+		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;		
 		let tomute = message.mentions.members.first();
 		let mutetime = args.slice(1).join(' ');
