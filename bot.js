@@ -481,14 +481,6 @@ client.on("message", async message => {
 
 
 
-    if (message.content.startsWith("!role")){
-    	if (!message.member.hasPermission("BAN_MEMBERS"))
-    		return 0;
-    	const sayMessage = args.join(" ");
-    	var i =client.message.guild.roles.cache.find("name", sayMessage).id;
-    	return message.channel.send(i);
-    }
-
 
     if (message.content.startsWith("!uptime")){
     	if (!message.member.hasPermission("BAN_MEMBERS"))
