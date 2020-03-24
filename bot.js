@@ -82,7 +82,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 			if(role && member) {
 				
 				await member.roles.add(role);
-				console.log(member.displayName+ "ahora tiene el rol "+reaction.emoji.name+".");
+				console.log(member.displayName+ " ahora tiene el rol "+reaction.emoji.name+".");
 			}
 		}
 		catch(err) {
