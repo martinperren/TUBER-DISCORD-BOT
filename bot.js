@@ -71,11 +71,17 @@ client.on('guildMemberRemove', member => {
 
 client.on('messageReactionAdd', async (reaction, user) => {
 	
+//admins no necesitan el rol
+
+if (!message.member.hasPermission("BAN_MEMBERS"))
+			return 0;
+
 	let applyRole = async () => {
 		let emojiName = reaction.emoji.name;
 
 		let role = reaction.message.guild.roles.cache.find(role => role.name.toLowerCase() === emojiName.toLowerCase());
 		let member = reaction.message.guild.members.cache.find(member => member.id === user.id);
+
 
 		member.roles.remove("691878387970736128");
 		member.roles.add("537712377634881545");
