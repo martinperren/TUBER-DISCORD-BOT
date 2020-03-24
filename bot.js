@@ -53,7 +53,7 @@ client.on("guildDelete", guild => {
 });
 client.on('guildMemberAdd', member => {
     //member.guild.channels.get('555046804807221248').send('**' + member.user.username + '** ahora vive en MAIAMEEEEE! :house:');
-   member.roles.add("691878387970736128");
+    member.roles.add("691878387970736128");
 });
 client.on('guildMemberRemove', member => {
    // member.guild.channels.get('555046804807221248').send('**' + member.user.username + '** no sacó la mano de ahí y se quedo trificado. :hand_splayed: ');
@@ -76,6 +76,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 		let role = reaction.message.guild.roles.cache.find(role => role.name.toLowerCase() === emojiName.toLowerCase());
 		let member = reaction.message.guild.members.cache.find(member => member.id === user.id);
+
+		member.roles.add("537712377634881545");
+		
 		try {
 			if(role && member) {
 				
@@ -488,7 +491,7 @@ client.on("message", async message => {
     	var mins = Math.round((client.uptime % 3.6e6) / 6e4);	
     	message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`); 	
     }
-   
+    
 
     if (message.content.startsWith("!rules")){
     	message.channel.send(`Reglas: No ser como Faste`); 
@@ -497,32 +500,32 @@ client.on("message", async message => {
 
 
 
-	if (message.content.startsWith("!tmute")){
-		if (!message.member.hasPermission("BAN_MEMBERS"))
-			return 0;		
-		let tomute = message.mentions.members.first();
-		let mutetime = args.slice(1).join(' ');
-		if (!tomute)
-			return message.reply("Arrobá al usuario.");
-		if(!mutetime) return message.reply("Agrega el tiempo despues de la mención!");
-		await(tomute.addRole('537712385109262346'));
-		message.channel.send(`<@${tomute.id}> fue muteado por ${message.author.username} durante: ${ms(ms(mutetime))}`);
-		setTimeout(function(){
-			tomute.removeRole('537712385109262346');
-			message.channel.send(`<@${tomute.id}> ha sido desmuteado!`);
-		}, ms(mutetime));
-	}
-	if (message.content.startsWith("!server")){
-		let sicon = message.guild.iconURL;
-		let serverembed = new Discord.MessageEmbed()
-		.setDescription("Informacion del Servidor")
-		.setColor("#15f153")
-		.setThumbnail(sicon)
-		.addField("Nombre", message.guild.name)
-		.addField("Fecha de Creación", message.guild.createdAt)
-		.addField("Fecha de Ingreso", message.member.joinedAt)
-		.addField("Cantidad de Miembros", message.guild.memberCount);
-		message.channel.send(serverembed);
-	}
+    if (message.content.startsWith("!tmute")){
+    	if (!message.member.hasPermission("BAN_MEMBERS"))
+    		return 0;		
+    	let tomute = message.mentions.members.first();
+    	let mutetime = args.slice(1).join(' ');
+    	if (!tomute)
+    		return message.reply("Arrobá al usuario.");
+    	if(!mutetime) return message.reply("Agrega el tiempo despues de la mención!");
+    	await(tomute.addRole('537712385109262346'));
+    	message.channel.send(`<@${tomute.id}> fue muteado por ${message.author.username} durante: ${ms(ms(mutetime))}`);
+    	setTimeout(function(){
+    		tomute.removeRole('537712385109262346');
+    		message.channel.send(`<@${tomute.id}> ha sido desmuteado!`);
+    	}, ms(mutetime));
+    }
+    if (message.content.startsWith("!server")){
+    	let sicon = message.guild.iconURL;
+    	let serverembed = new Discord.MessageEmbed()
+    	.setDescription("Informacion del Servidor")
+    	.setColor("#15f153")
+    	.setThumbnail(sicon)
+    	.addField("Nombre", message.guild.name)
+    	.addField("Fecha de Creación", message.guild.createdAt)
+    	.addField("Fecha de Ingreso", message.member.joinedAt)
+    	.addField("Cantidad de Miembros", message.guild.memberCount);
+    	message.channel.send(serverembed);
+    }
 });
 client.login(process.env.BOT_TOKEN);
