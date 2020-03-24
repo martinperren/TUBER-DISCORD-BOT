@@ -71,10 +71,6 @@ client.on('guildMemberRemove', member => {
 
 client.on('messageReactionAdd', async (reaction, user) => {
 	
-//admins no necesitan el rol
-
-if (!message.member.hasPermission("BAN_MEMBERS"))
-			return 0;
 
 	let applyRole = async () => {
 		let emojiName = reaction.emoji.name;
