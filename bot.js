@@ -185,7 +185,7 @@ let place = 0;
 
 function changeColor() {
 
-	client.guilds.get("537710790107725844").roles.find('name',"Bunker Support").setColor(rainbow[place])
+	client.guilds.cache.get("537710790107725844").roles.find('name',"Bunker Support").setColor(rainbow[place])
 	.catch(console.error);
 
 	if(true){
