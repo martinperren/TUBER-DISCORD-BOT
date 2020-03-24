@@ -53,9 +53,7 @@ client.on("guildDelete", guild => {
 });
 client.on('guildMemberAdd', member => {
     //member.guild.channels.get('555046804807221248').send('**' + member.user.username + '** ahora vive en MAIAMEEEEE! :house:');
-    member.user.send("test.")
-
-    member.addRole('537712377634881545');
+   member.roles.add("691878387970736128");
 });
 client.on('guildMemberRemove', member => {
    // member.guild.channels.get('555046804807221248').send('**' + member.user.username + '** no sacó la mano de ahí y se quedo trificado. :hand_splayed: ');
@@ -233,11 +231,9 @@ client.on("message", async message => {
 		const ayy = client.emojis.get("537716624296378399");
 		message.channel.send(`¿y el ${ayy}?`);
 	}
-	if (message.content.startsWith("!cmds")||message.content.startsWith("!help")){
-		if (!message.member.hasPermission("BAN_MEMBERS"))
-			return 0;
-		return message.reply("\n!cc num\n!rol nombre\n!uptime \n!server \n!say texto\n!big texto\n!kick @usuario razon\n!mute @usuario\n!tmute @usuario 1s/m/h/d\n!unmute @usuario\n!ban @usuario razon\n!nick @usuario nick\n!music (ayuda de musica)\n!add key (link de yt)\n!remove key\n!p key (reproduce el video)\n!keys (ver todas las keys)");
-	}
+
+
+
 	if (message.content.startsWith("!nick")){
 		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;
