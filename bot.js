@@ -485,7 +485,7 @@ client.on("message", async message => {
     	if (!message.member.hasPermission("BAN_MEMBERS"))
     		return 0;
     	const sayMessage = args.join(" ");
-    	var i = message.guild.roles.find("name", sayMessage).id;
+    	var i = message.guild.roles.cache.find("name", sayMessage).id;
     	return message.reply(i); 
     }
 
@@ -500,6 +500,8 @@ client.on("message", async message => {
     	var mins = Math.round((client.uptime % 3.6e6) / 6e4);	
     	message.channel.send(`__**BOT UPTIME:**__ ${days} DIAS ${hrs} HS ${mins} MINS`); 	
     }
+   
+
     if (message.content.startsWith("!rules")){
     	message.channel.send(`Reglas: No ser como Faste`); 
     }
@@ -507,151 +509,6 @@ client.on("message", async message => {
 
 
 
-	/////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-	
-	
-	
-
-	if (message.content.startsWith("!add")){
-		
-		const args = message.content.slice(1).trim().split(/ +/g);
-		const command = args.shift().toLowerCase();
-		
-
-		if(args.length==2){
-			
-			let clave = args[0];
-			let link = args[1];
-			let now = new Date();
-
-
-
-			db.query("INSERT INTO Youtube (id, clave, link, creador, reg_date) VALUES (?, ?, ?, ?, ?)",
-				['', clave, link, message.author.username, now]);
-		}else{
-
-
-			message.channel.send('Usa !add clave link.'); 
-
-		}
-	}
-	
-	
-
-	if (message.content.startsWith("!p ")) {
-
-
-		var link = "";
-		const args = message.content.slice(1).trim().split(/ +/g);
-		const command = args.shift().toLowerCase();
-		let clave = args[0];
-
-		
-		
-		
-
-		if (args.length == 1) {
-
-			db.query("SELECT link FROM Youtube WHERE clave = ?", [clave], async function (err, rows) {
-				if (rows[0] == null) {
-
-					message.reply("Clave no encontrada.");
-
-
-				} else {
-					link = rows[0].link;
-					if(String(link).length!=0){
-						const voiceChannel = message.member.voiceChannel;
-						var video = await youtube.getVideo(link);
-
-						var playlist = false;
-						handleVideo(video, message, voiceChannel, playlist);
-				//message.channel.send('!cc 2');
-			}
-
-		}
-
-	});
-
-
-		} else {
-			message.channel.send('Usa !p clave.');
-		}
-
-
-	}
-
-
-
-	if (message.content.startsWith("!delete")) {
-
-
-		var link = "";
-		const args = message.content.slice(1).trim().split(/ +/g);
-		const command = args.shift().toLowerCase();
-		let clave = args[0];
-		
-
-		if (args.length == 1) {
-
-			db.query("DELETE FROM Youtube WHERE clave = ?", [clave], async function (err, rows) {
-
-				message.reply("Clave "+clave+" borrada.");
-
-
-
-			});
-
-
-		} else {
-			message.channel.send('Usa !delete clave.');
-		}
-
-
-	}
-
-
-
-
-
-
-
-
-	if (message.content.startsWith("!keys")) {
-		message.delete();
-
-
-
-		db.query("SELECT * FROM Youtube", async function (err, rows) {
-			
-
-
-
-			let sicon = message.guild.iconURL;
-			let serverembed = new Discord.RichEmbed()
-			.setDescription("Lista de claves")
-			.setColor("#15f153")
-			.setThumbnail(sicon)
-
-			var i=0;
-			while(rows[i]!=null){
-				serverembed.addField(rows[i].clave,rows[i].link);
-				i++;
-			}
-
-
-			message.channel.send(serverembed);
-
-
-		});
-
-
-
-	}
-
-	
-	
-	
 	if (message.content.startsWith("!tmute")){
 		if (!message.member.hasPermission("BAN_MEMBERS"))
 			return 0;		
