@@ -33,7 +33,7 @@ client.on("ready", () => {
 	console.log("Bot iniciado");
 	
 	client.user.setActivity(process.env.GAME, { type: 'LISTENING' })
-	.then(presence => console.log(`Activity set to ${presence.activities ? presence.game.name : 'none'}`))
+	.then(presence => console.log(`Activity set to ${presence.activities ? presence.activities.name : 'none'}`))
 	.catch(console.error);
 
 });
