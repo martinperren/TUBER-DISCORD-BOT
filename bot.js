@@ -218,12 +218,13 @@ client.on("message", async message => {
 	}
 
 	if (message.content.includes("huevo")) {
-		message.react(client.emojis.get("537716624296378399"));
+		message.react("537716624296378399");
 	}
+	
 	
 	if (message.content.startsWith("!huevo")){
 		message.delete();
-		const ayy = client.emojis.get("537716624296378399");
+		const ayy = client.emojis.cache.get("537716624296378399");
 		message.channel.send(`¿y el ${ayy}?`);
 	}
 
