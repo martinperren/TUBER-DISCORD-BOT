@@ -33,7 +33,7 @@ client.on("ready", () => {
 	console.log("Bot iniciado");
 	
 	client.user.setActivity(process.env.GAME, { type: 'LISTENING' })
-	  .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+	.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
 	.catch(console.error);
 
 });
@@ -341,24 +341,8 @@ client.on("message", async message => {
 		.catch(error => message.reply(`${message.author} no se pudo kickear. Error: ${error}.`));
 		message.channel.send(`<@${message.author.id}> kickeó a <@${member.user.id}> por: ${reason}.`);
 	}
-	if (message.content.startsWith("!mute")){
-		if (!message.member.hasPermission("BAN_MEMBERS"))
-			return 0;
-		let member = message.mentions.members.first();
-		if (!member)
-			return message.reply("Arrobá al usuario.");
-		member.addRole('537712385109262346');
-		message.channel.send(`<@${member.user.id}> fue muteado por <@${message.author.id}>.`);
-	}
-	if (message.content.startsWith("!unmute")){
-		if (!message.member.hasPermission("BAN_MEMBERS"))
-			return 0;
-		let member = message.mentions.members.first();
-		if (!member)
-			return message.reply("Arrobá al usuario.");
-		member.removeRole('537712385109262346');
-		message.channel.send(`<@${message.author.id}> desmuteo a <@${member.user.id}>.`);
-	}
+
+
 	if (message.content.startsWith("!ban")){
 
 		if (!message.member.hasPermission("BAN_MEMBERS"))
@@ -376,11 +360,7 @@ client.on("message", async message => {
 		message.channel.send(`<@${message.author.id}> le dio ban a <@${member.user.id}> por: ${reason}.`);
 	}
 	
-	//Si se buggea el bot, para sacarlo del canal de voz.
-	if (message.content.startsWith("!quit")){
-		message.member.voiceChannel.leave();
-		message.delete();
-	}
+
 
 	if (message.content.startsWith("!cc")){
 
@@ -391,13 +371,12 @@ client.on("message", async message => {
 
 			if (isNaN(args[0])) {
 
-				message.channel.send('Pone un número despues del comando.'); 
+			message.channel.send('Pone un número despues del comando.'); 
 
 				return;
 			}
 			const fetched = await message.channel.fetchMessages({limit: args[0]}); 
-            //console.log(fetched.size + ' messages found, deleting...'); 
-
+			
             message.channel.bulkDelete(fetched);
         }
 
@@ -407,66 +386,7 @@ client.on("message", async message => {
 
 
 
-    if (message.content.startsWith("!play")){
-    	const voiceChannel = message.member.voiceChannel;
-    	if (!voiceChannel)
-    		return message.channel.send('Metete en en canal de voz, crack!');
-    	const permissions = voiceChannel.permissionsFor(message.client.user);
-    	if (!permissions.has('CONNECT')) {
-    		return message.channel.send('No tengo permisos para entrar a este canal.');
-    	}
-    	if (!permissions.has('SPEAK')) {
-    		return message.channel.send('No tengo permisos para hablar en este canal.');
-    	}
-    	if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
-    		const playlist = await youtube.getPlaylist(url);
-    		const videos = await playlist.getVideos();
-    		for (const video of Object.values(videos)) {
-    			const video2 = await youtube.getVideoByID(video.id); 
-    			await handleVideo(video2, message, voiceChannel, true); 
-    		}
-    		return message.channel.send(`? Playlist: **${playlist.title}** ha sido agregado a la cola!`);
-    	} else {
-    		try {
-    			var video = await youtube.getVideo(url);
-    		} catch (error) {
-    			try {
-    				var videos = await youtube.searchVideos(searchString, 10);
-    				let index = 0;
-    				message.channel.send(`
-    					__**Selecciona el temaiken:**__ \n
-    					${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
-    					Pone un numero de 1-10.
-    					`);
-
-    				try {
-    					var response = await message.channel.awaitMessages(message2 => message2.content > 0 && message2.content < 11, {
-    						maxMatches: 1,
-    						time: 10000,
-    						errors: ['time']
-    					});
-    				} catch (err) {
-    					console.error(err);
-    					return message.channel.send('Ingresa un valor valido, busqueda cancelada.');
-    				}
-    				const videoIndex = parseInt(response.first().content);
-    				var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
-    			} catch (err) {
-    				console.error(err);
-    				return message.channel.send('No hay resultados.');
-    			}
-    		}
-    		return handleVideo(video, message, voiceChannel);
-    	}
-    }
-
-
-
-
-
     if (message.author.id=='355922192749428737'&&(message.content.includes("lol")||(message.content.includes("sale")))){
-
-
 
     	return message.channel.send('No Faste, no rompas las bolas.');
     }
@@ -486,28 +406,7 @@ client.on("message", async message => {
     }
 
 
-    if (message.content.startsWith("!rules")){
-    	message.channel.send(`Reglas: No ser como Faste`); 
-    }
 
-
-
-
-    if (message.content.startsWith("!tmute")){
-    	if (!message.member.hasPermission("BAN_MEMBERS"))
-    		return 0;		
-    	let tomute = message.mentions.members.first();
-    	let mutetime = args.slice(1).join(' ');
-    	if (!tomute)
-    		return message.reply("Arrobá al usuario.");
-    	if(!mutetime) return message.reply("Agrega el tiempo despues de la mención!");
-    	await(tomute.addRole('537712385109262346'));
-    	message.channel.send(`<@${tomute.id}> fue muteado por ${message.author.username} durante: ${ms(ms(mutetime))}`);
-    	setTimeout(function(){
-    		tomute.removeRole('537712385109262346');
-    		message.channel.send(`<@${tomute.id}> ha sido desmuteado!`);
-    	}, ms(mutetime));
-    }
     if (message.content.startsWith("!server")){
     	let sicon = message.guild.iconURL;
     	let serverembed = new Discord.MessageEmbed()
