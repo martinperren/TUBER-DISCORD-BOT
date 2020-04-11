@@ -322,7 +322,7 @@ client.on('message', async (msg) => {
                             gameType = "custom";
                             break;
                         default:
-                            msg.reply("Podes elegir entre el modo de juego \"custom\" o \"random\"");
+                            msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\"");
                             return;
                     }
 
