@@ -314,7 +314,7 @@ client.on('message', async (msg) => {
         msg.channel.send(args);
         switch (args[0]) {
             case "start":
-                if (!runningGames.has(msg.guild)) {
+               
                     let gameType = "custom";
                     if (args[1]) switch (args[1]) {
                         case "random":
@@ -326,7 +326,7 @@ client.on('message', async (msg) => {
                         default:
                             msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa !jugar modo");
                             return;
-                    }
+                    
 
                     runningGames.add(msg.channel.guild);
 
