@@ -256,7 +256,7 @@ async function startGame(channel, gameType) {
 async function runGame(channel, game, players) {
     const gameMessage = await showProgress(channel, game);
     const filter = ((m) =>
-        players.find((p) => (p.id == m.author.id)));
+        players.cache.find((p) => (p.id == m.author.id)));
 
     const collector = channel.createMessageCollector(filter, { time: 600000 }); // max of 15 minutes per game
 
@@ -266,7 +266,7 @@ async function runGame(channel, game, players) {
             m.delete();
             if (m.content.match(/^[A-Za-zÀ-ú]{2,}$/)) {
                 if (game.guessAll(c) == false) {
-                    players.splice(players.find(p => m.author.id == p.id), 1);
+                    players.splice(players.cache.find(p => m.author.id == p.id), 1);
                 }
             } else if (m.content.match(/^[A-Za-zÀ-ú]{1}$/)) {
                 game.guess(c);
