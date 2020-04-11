@@ -309,8 +309,9 @@ async function showResult(channel, game, selector) {
 
 client.on('message', async (msg) => {
     if (msg.content.startsWith("!jugar")) {
-    	msg.channel.send("test");
+    	
         const args = msg.content.slice(prefix.length).trim().split(' ').filter(word => word.trim().length > 0);
+        msg.channel.send(args);
         switch (args[0]) {
             case "start":
                 if (!runningGames.has(msg.guild)) {
