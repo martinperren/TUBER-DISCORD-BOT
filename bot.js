@@ -21,7 +21,7 @@ client.on("ready", () => {
 	
 	
 	console.log();
-	console.log("Bot iniciado en "+client.guilds.size+" servers.");
+	console.log("Bot iniciado en ${client.guilds.size} servers.");
 	
 	client.user.setActivity(process.env.GAME, { type: 'LISTENING' })
 	.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
