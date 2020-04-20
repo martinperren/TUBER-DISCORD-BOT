@@ -20,7 +20,7 @@ client.on("ready", () => {
 	
 	
 	
-	
+	console.log(client.guilds);
 	console.log("Bot iniciado");
 	
 	client.user.setActivity(process.env.GAME, { type: 'LISTENING' })
