@@ -215,14 +215,15 @@ client.on("message", async message => {
 
 
 if (message.content.toLowerCase().startsWith('!recme')) {
-        var message = message;
+        var message2 = message;
+        var msg = message;
         try {
             
             // Variables
             var returntime;
             var timemeasure;
             msg = msg.content.split(' ');
-            console.log('Mensaje recibido de ' + message.author.id + ' a las ' + Date.now().toString());
+            console.log('Mensaje recibido de ' + message2.author.id + ' a las ' + Date.now().toString());
 
             // Sets the return time
             timemeasure = msg[1].substring((msg[1].length - 1), (msg[1].length))
@@ -260,11 +261,11 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 // Creates the message
                 var content = msg.join();
                 content = content.replaceAll(',', ' ');
-                message.reply(content);
+                message2.reply(content);
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
-            message.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
+            message2.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
             console.error(e.toString());
         }
 
@@ -274,7 +275,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
     
     // Reminds a specific user
     } else if (msg.content.toLowerCase().startsWith('!rec')) {
-        var message = msg;
+        var message2 = msg;
         try {
             
             // Variables
@@ -282,7 +283,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
             var timemeasure;
             var userid;
             msg = msg.content.split(' ');
-            console.log('Mensaje recibido de ' + message.author.id + ' a las ' + Date.now().toString());
+            console.log('Mensaje recibido de ' + message2.author.id + ' a las ' + Date.now().toString());
 
             // Sets the userid for the recipiant
             userid = client.users.get(msg[1].replace('<@!', '').slice(0, -1))
@@ -328,7 +329,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
-            message.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
+            message2.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
             console.error(e.toString());
         }
 
