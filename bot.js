@@ -215,7 +215,7 @@ client.on("message", async message => {
 
 
 if (message.content.toLowerCase().startsWith('!recme')) {
-        var message = msg;
+        var message = message;
         try {
             
             // Variables
