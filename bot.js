@@ -289,7 +289,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
             console.log('Mensaje recibido de ' + messageAux.author.id + ' a las ' + Date.now().toString());
 
             // Sets the userid for the recipiant
-            userid = client.users.get(msg[1].replace('<@!', '').slice(0, -1))
+            userid = client.users.cache.get(msg[1].replace('<@!', '').slice(0, -1))
             
             // Sets the return time
             timemeasure = msg[2].substring((msg[2].length - 1), (msg[2].length))
