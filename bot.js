@@ -218,7 +218,7 @@ client.on("message", async message => {
 
 
 if (message.content.toLowerCase().startsWith('!recme')) {
-    let member = message.guild.members.cache.find(member => member.id === user.id);
+   
         var messageAux = message;
         var msg = message;
         try {
@@ -227,7 +227,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
             var returntime;
             var timemeasure;
             msg = msg.content.split(' ');
-            console.log('Mensaje recibido de ' + member.displayName + ' a las ' + Date.now().toString());
+            console.log('Mensaje recibido de ' + message.author.username + ' a las ' + Date.now().toString());
 
             // Sets the return time
             timemeasure = msg[1].substring((msg[1].length - 1), (msg[1].length))
@@ -266,7 +266,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 var content = msg.join();
                 content = content.replaceAll(',', ' ');
                 message.author.send("Recordatorio: "+ content);
-                console.log('Mensaje enviado a ' + message.author.displayName + ' a las ' + Date.now().toString());
+                console.log('Mensaje enviado a ' + message.author.username + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
             message.channel.send("Error, asegurate de ingresar un mensaje y el tiempo.");
@@ -284,7 +284,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
             var returntime;
             var timemeasure;
             msg = msg.content.split(' ');
-            console.log('Mensaje recibido de ' + member.displayName + ' a las ' + Date.now().toString());
+            console.log('Mensaje recibido de ' + message.author.username + ' a las ' + Date.now().toString());
 
             // Sets the return time
             timemeasure = msg[1].substring((msg[1].length - 1), (msg[1].length))
@@ -323,7 +323,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 var content = msg.join();
                 content = content.replaceAll(',', ' ');
                 message.channel.send("Recordatorio: "+ content);
-                console.log('Mensaje enviado a ' + message.author.displayName + ' a las ' + Date.now().toString());
+                console.log('Mensaje enviado a ' + message.author.username + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
             message.channel.send("Error, asegurate de ingresar un mensaje y el tiempo.");
