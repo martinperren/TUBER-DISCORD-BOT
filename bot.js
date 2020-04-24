@@ -264,11 +264,11 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 // Creates the message
                 var content = msg.join();
                 content = content.replaceAll(',', ' ');
-                messageAux.reply(content);
+                message.channel.send(content);
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
-            messageAux.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
+            message.channel.send("Error, asegurate de ingresar un mensaje y el tiempo.");
             console.error(e.toString());
         }
 
@@ -328,7 +328,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
-            messageAux.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
+            message.channel.send("Error, asegurate de ingresar un mensaje y el tiempo.");
             console.error(e.toString());
         }
 
