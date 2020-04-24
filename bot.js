@@ -215,7 +215,7 @@ client.on("message", async message => {
 
 
 if (message.content.toLowerCase().startsWith('!recme')) {
-        var message = message;
+        var message = msg;
         try {
             
             // Variables
@@ -264,7 +264,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
-           message.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
+            message.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
             console.error(e.toString());
         }
 
@@ -335,7 +335,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
     // List of Commands
     } 
 
-}
+
        
 
 
