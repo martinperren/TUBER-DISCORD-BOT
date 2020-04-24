@@ -80,9 +80,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
 	{
 
 		try {
-			let msg = await reaction.message.fetch(); 
+			let message = await reaction.message.fetch(); 
 			
-			if(msg.id === '691831956106903563')
+			if(message.id === '691831956106903563')
 			{			
 				applyRole();
 			}
@@ -119,9 +119,9 @@ client.on('messageReactionRemove', async (reaction, user) => {
 	if(reaction.message.partial)
 	{
 		try {
-			let msg = await reaction.message.fetch(); 
+			let message = await reaction.message.fetch(); 
 			
-			if(msg.id === '691831956106903563')
+			if(message.id === '691831956106903563')
 			{
 				removeRole();
 			}
@@ -214,19 +214,19 @@ client.on("message", async message => {
 */
 
 
-if (msg.content.toLowerCase().startsWith('!recme')) {
-        var message = msg;
+if (message.content.toLowerCase().startsWith('!recme')) {
+        var message = message;
         try {
             
             // Variables
             var returntime;
             var timemeasure;
-            msg = msg.content.split(' ');
+            message = message.content.split(' ');
             console.log('Mensaje recibido de ' + message.author.id + ' a las ' + Date.now().toString());
 
             // Sets the return time
-            timemeasure = msg[1].substring((msg[1].length - 1), (msg[1].length))
-            returntime = msg[1].substring(0, (msg[1].length - 1))
+            timemeasure = message[1].substring((message[1].length - 1), (message[1].length))
+            returntime = message[1].substring(0, (message[1].length - 1))
 
             // Based off the delimiter, sets the time
             switch (timemeasure) {
@@ -254,11 +254,11 @@ if (msg.content.toLowerCase().startsWith('!recme')) {
             // Returns the Message
             client.setTimeout(function () {
                 // Removes the first 2 array items
-                msg.shift();
-                msg.shift();
+                message.shift();
+                message.shift();
 
                 // Creates the message
-                var content = msg.join();
+                var content = message.join();
                 content = content.replaceAll(',', ' ');
                 message.reply(content);
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
@@ -269,27 +269,27 @@ if (msg.content.toLowerCase().startsWith('!recme')) {
         }
 
     // List of commands
-    }else if (msg.content.toLowerCase() === "!reminderbot") {
-        msg.channel.send("Hello I am reminder bot:\n\n!reminderbot \t\tList of all Commands\n!quit \t\tTurns off the bot\n!remindme \t\t {time} {message}\n\t{time} Please have the amount of time be denoted by a time character.\n\t\tm - minutes, s - seconds, d - days.\n!remind {@User} {time} {message}\n\t{time} Please have the amount of time be denoted by a time character.\n\t\tm - minutes, s - seconds, d - days.\n\t{@User} So far you can use the user's name with the @ symbol.\n\n--- Created and Managed by pixlbreaker ---");
+    }else if (message.content.toLowerCase() === "!reminderbot") {
+        message.channel.send("Hello I am reminder bot:\n\n!reminderbot \t\tList of all Commands\n!quit \t\tTurns off the bot\n!remindme \t\t {time} {message}\n\t{time} Please have the amount of time be denoted by a time character.\n\t\tm - minutes, s - seconds, d - days.\n!remind {@User} {time} {message}\n\t{time} Please have the amount of time be denoted by a time character.\n\t\tm - minutes, s - seconds, d - days.\n\t{@User} So far you can use the user's name with the @ symbol.\n\n--- Created and Managed by pixlbreaker ---");
     
     // Reminds a specific user
-    } else if (msg.content.toLowerCase().startsWith('!rec')) {
-        var message = msg;
+    } else if (message.content.toLowerCase().startsWith('!rec')) {
+        var message = message;
         try {
             
             // Variables
             var returntime;
             var timemeasure;
             var userid;
-            msg = msg.content.split(' ');
+            message = message.content.split(' ');
             console.log('Mensaje recibido de ' + message.author.id + ' a las ' + Date.now().toString());
 
             // Sets the userid for the recipiant
-            userid = client.users.get(msg[1].replace('<@!', '').slice(0, -1))
+            userid = client.users.get(message[1].replace('<@!', '').slice(0, -1))
             
             // Sets the return time
-            timemeasure = msg[2].substring((msg[2].length - 1), (msg[2].length))
-            returntime = msg[2].substring(0, (msg[2].length - 1))
+            timemeasure = message[2].substring((message[2].length - 1), (message[2].length))
+            returntime = message[2].substring(0, (message[2].length - 1))
 
             // Based off the delimiter, sets the time
             switch (timemeasure) {
@@ -317,12 +317,12 @@ if (msg.content.toLowerCase().startsWith('!recme')) {
             // Returns the Message
             client.setTimeout(function () {
                 // Removes the first 2 array items
-                msg.shift();
-                msg.shift();
-                msg.shift();
+                message.shift();
+                message.shift();
+                message.shift();
 
                 // Creates the message
-                var content = msg.join();
+                var content = message.join();
                 content = content.replaceAll(',', ' ');
                 message.channel.send(userid + content);
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
