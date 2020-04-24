@@ -15,7 +15,10 @@ var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
 
 
 
-
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
 
 
 
@@ -215,7 +218,7 @@ client.on("message", async message => {
 
 
 if (message.content.toLowerCase().startsWith('!recme')) {
-        var message2 = message;
+        var messageAux = message;
         var msg = message;
         try {
             
@@ -223,7 +226,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
             var returntime;
             var timemeasure;
             msg = msg.content.split(' ');
-            console.log('Mensaje recibido de ' + message2.author.id + ' a las ' + Date.now().toString());
+            console.log('Mensaje recibido de ' + messageAux.author.id + ' a las ' + Date.now().toString());
 
             // Sets the return time
             timemeasure = msg[1].substring((msg[1].length - 1), (msg[1].length))
@@ -261,11 +264,11 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 // Creates the message
                 var content = msg.join();
                 content = content.replaceAll(',', ' ');
-                message2.reply(content);
+                messageAux.reply(content);
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
-            message2.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
+            messageAux.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
             console.error(e.toString());
         }
 
@@ -275,7 +278,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
     
     // Reminds a specific user
     } else if (msg.content.toLowerCase().startsWith('!rec')) {
-        var message2 = msg;
+        var messageAux = msg;
         try {
             
             // Variables
@@ -283,7 +286,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
             var timemeasure;
             var userid;
             msg = msg.content.split(' ');
-            console.log('Mensaje recibido de ' + message2.author.id + ' a las ' + Date.now().toString());
+            console.log('Mensaje recibido de ' + messageAux.author.id + ' a las ' + Date.now().toString());
 
             // Sets the userid for the recipiant
             userid = client.users.get(msg[1].replace('<@!', '').slice(0, -1))
@@ -329,24 +332,12 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
-            message2.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
+            messageAux.reply("Error, asegurate de ingresar un mensaje y el tiempo.");
             console.error(e.toString());
         }
 
     // List of Commands
     } 
-
-
-       
-
-
-
-
-
-
-
-      
-    
 
 
 	if (message.content.includes("huevo")) {
@@ -431,10 +422,6 @@ if (message.content.toLowerCase().startsWith('!recme')) {
 	
 	
 	
-
-	
-
-
 
     if (message.author.id=='355922192749428737'&&(message.content.includes("lol")||(message.content.includes("sale")))){
 
