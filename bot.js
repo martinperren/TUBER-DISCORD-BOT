@@ -273,7 +273,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
         }
 
     // List of commands
-    }else if (msg.content.toLowerCase().startsWith('!rec')) {
+    }else if (message.content.toLowerCase().startsWith('!rec')) {
         var messageAux = msg;
         try {
             
