@@ -264,7 +264,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 // Creates the message
                 var content = msg.join();
                 content = content.replaceAll(',', ' ');
-                message.channel.send(content);
+                message.author.send("Recordatorio: "+ content);
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
@@ -286,7 +286,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
             console.log('Mensaje recibido de ' + messageAux.author.id + ' a las ' + Date.now().toString());
 
             // Sets the userid for the recipiant
-            userid = client.users.cache.get(msg[1].replace('<@!', '').slice(0, -1))
+          
             
             // Sets the return time
             timemeasure = msg[2].substring((msg[2].length - 1), (msg[2].length))
@@ -325,7 +325,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 // Creates the message
                 var content = msg.join();
                 content = content.replaceAll(',', ' ');
-                message.channel.send(userid + content);
+                message.channel.send("Recordatorio: "+content);
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
