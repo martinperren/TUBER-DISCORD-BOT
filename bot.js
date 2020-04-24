@@ -228,6 +228,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
             var timemeasure;
             msg = msg.content.split(' ');
             console.log('Mensaje recibido de ' + message.author.username + ' a las ' + Date.now().toString());
+            message.react("👍");
 
             // Sets the return time
             timemeasure = msg[1].substring((msg[1].length - 1), (msg[1].length))
@@ -285,6 +286,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
             var timemeasure;
             msg = msg.content.split(' ');
             console.log('Mensaje recibido de ' + message.author.username + ' a las ' + Date.now().toString());
+            message.react("👍");
 
             // Sets the return time
             timemeasure = msg[1].substring((msg[1].length - 1), (msg[1].length))
