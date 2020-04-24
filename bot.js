@@ -274,23 +274,19 @@ if (message.content.toLowerCase().startsWith('!recme')) {
 
     // List of commands
     }else if (message.content.toLowerCase().startsWith('!rec')) {
-        var messageAux = message;
+            var messageAux = message;
         var msg = message;
         try {
             
             // Variables
             var returntime;
             var timemeasure;
-            var userid;
             msg = msg.content.split(' ');
             console.log('Mensaje recibido de ' + messageAux.author.id + ' a las ' + Date.now().toString());
 
-            // Sets the userid for the recipiant
-          
-            
             // Sets the return time
-            timemeasure = msg[2].substring((msg[2].length - 1), (msg[2].length))
-            returntime = msg[2].substring(0, (msg[2].length - 1))
+            timemeasure = msg[1].substring((msg[1].length - 1), (msg[1].length))
+            returntime = msg[1].substring(0, (msg[1].length - 1))
 
             // Based off the delimiter, sets the time
             switch (timemeasure) {
@@ -320,19 +316,17 @@ if (message.content.toLowerCase().startsWith('!recme')) {
                 // Removes the first 2 array items
                 msg.shift();
                 msg.shift();
-                msg.shift();
 
                 // Creates the message
                 var content = msg.join();
                 content = content.replaceAll(',', ' ');
-                message.channel.send("Recordatorio: "+content);
+                message.channel.send("Recordatorio: "+ content);
                 console.log('Mensaje enviado a ' + userid + ' a las ' + Date.now().toString());
             }, returntime)
         } catch (e) {
             message.channel.send("Error, asegurate de ingresar un mensaje y el tiempo.");
             console.error(e.toString());
         }
-
     // List of Commands
     } 
 
