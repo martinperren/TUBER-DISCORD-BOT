@@ -274,7 +274,8 @@ if (message.content.toLowerCase().startsWith('!recme')) {
 
     // List of commands
     }else if (message.content.toLowerCase().startsWith('!rec')) {
-        var messageAux = msg;
+        var messageAux = message;
+        var msg = message;
         try {
             
             // Variables
