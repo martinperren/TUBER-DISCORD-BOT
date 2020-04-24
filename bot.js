@@ -218,6 +218,7 @@ client.on("message", async message => {
 
 
 if (message.content.toLowerCase().startsWith('!recme')) {
+    let member = message.guild.members.cache.find(member => member.id === user.id);
         var messageAux = message;
         var msg = message;
         try {
@@ -226,7 +227,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
             var returntime;
             var timemeasure;
             msg = msg.content.split(' ');
-            console.log('Mensaje recibido de ' + messageAux.author.displayName + ' a las ' + Date.now().toString());
+            console.log('Mensaje recibido de ' + member.displayName + ' a las ' + Date.now().toString());
 
             // Sets the return time
             timemeasure = msg[1].substring((msg[1].length - 1), (msg[1].length))
@@ -274,6 +275,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
 
     // List of commands
     }else if (message.content.toLowerCase().startsWith('!rec')) {
+        let member = message.guild.members.cache.find(member => member.id === user.id);
             var messageAux = message;
         var msg = message;
         try {
@@ -282,7 +284,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
             var returntime;
             var timemeasure;
             msg = msg.content.split(' ');
-            console.log('Mensaje recibido de ' + messageAux.author.displayName + ' a las ' + Date.now().toString());
+            console.log('Mensaje recibido de ' + member.displayName + ' a las ' + Date.now().toString());
 
             // Sets the return time
             timemeasure = msg[1].substring((msg[1].length - 1), (msg[1].length))
