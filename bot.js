@@ -273,11 +273,7 @@ if (message.content.toLowerCase().startsWith('!recme')) {
         }
 
     // List of commands
-    }else if (msg.content.toLowerCase() === "!reminderbot") {
-        msg.channel.send("Hello I am reminder bot:\n\n!reminderbot \t\tList of all Commands\n!quit \t\tTurns off the bot\n!remindme \t\t {time} {message}\n\t{time} Please have the amount of time be denoted by a time character.\n\t\tm - minutes, s - seconds, d - days.\n!remind {@User} {time} {message}\n\t{time} Please have the amount of time be denoted by a time character.\n\t\tm - minutes, s - seconds, d - days.\n\t{@User} So far you can use the user's name with the @ symbol.\n\n--- Created and Managed by pixlbreaker ---");
-    
-    // Reminds a specific user
-    } else if (msg.content.toLowerCase().startsWith('!rec')) {
+    }else if (msg.content.toLowerCase().startsWith('!rec')) {
         var messageAux = msg;
         try {
             
