@@ -276,7 +276,6 @@ if (message.content.toLowerCase().startsWith('!recme')) {
 
     // List of commands
     }else if (message.content.toLowerCase().startsWith('!rec')) {
-        let member = message.guild.members.cache.find(member => member.id === user.id);
             var messageAux = message;
         var msg = message;
         try {
