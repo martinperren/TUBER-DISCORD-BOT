@@ -5,14 +5,9 @@ const restClient = new Client();
 //var vel = 4320000000;
 var admin = ["Owner", "Admin", "Bunker Support"];
 var roles = ["Owner", "Admin", "Bunker Support","Mods"];
-var mysql = require('mysql');
+
 
 //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  //  START  
-
-
-
-var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
-
 
 
 String.prototype.replaceAll = function(search, replacement) {
