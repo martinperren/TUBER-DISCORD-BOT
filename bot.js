@@ -62,7 +62,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 		member.roles.remove("691878387970736128");
 		member.roles.add("537712377634881545");
-		console.log("asd1");
+		
 
 
 		console.log(member.id);
@@ -82,10 +82,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
 		}
 	}
 
-	if (reaction.emoji.name == 'huevo' && user.id == '211602677858172930') {
-		//429051609381732352
-		console.log("asd2");
-		client.users.cache.get('211602677858172930').send('Comeme los huevos');
+	if (reaction.emoji.name == 'huevo' && user.id == '429051609381732352') {
+		
+		client.users.cache.get('429051609381732352').send('Comeme los huevos @');
 
 	}
 
