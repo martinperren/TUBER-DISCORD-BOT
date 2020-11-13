@@ -64,7 +64,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 		member.roles.add("537712377634881545");
 
 
-		if (reaction.emoji.name == 'huevo' && message.author.id == '211602677858172930') {
+		if (reaction.emoji.name == 'huevo' && member.id == '211602677858172930') {
 			//429051609381732352
 			client.users.cache.get('211602677858172930').send('Comeme los huevos');
 
