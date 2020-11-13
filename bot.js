@@ -62,10 +62,11 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 		member.roles.remove("691878387970736128");
 		member.roles.add("537712377634881545");
-
+		console.log("asd1");
 
 		if (reaction.emoji.name == 'huevo' && member.id == '211602677858172930') {
 			//429051609381732352
+			console.log("asd2");
 			client.users.cache.get('211602677858172930').send('Comeme los huevos');
 
 		}
