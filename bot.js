@@ -82,11 +82,6 @@ client.on('messageReactionAdd', async (reaction, user) => {
 		}
 	}
 
-	if (reaction.emoji.name == 'huevo' && user.id == '429051609381732352') {
-		
-		client.users.cache.get('429051609381732352').send('Comeme los huevos @');
-
-	}
 
 
 	if (reaction.message.partial) {
